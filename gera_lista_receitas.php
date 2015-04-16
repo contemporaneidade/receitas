@@ -4,6 +4,7 @@ $dados = "";
 if (($handle = fopen("sequencial_candidatos.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 		$file = "files/receitas_".trim($data[2]).".html";
+		echo $file."\r\n";
 		
 		$handle2 = @fopen($file, "r");
 		if ($handle2) {
@@ -13,6 +14,18 @@ if (($handle = fopen("sequencial_candidatos.csv", "r")) !== FALSE) {
 				
 				if (preg_match('/Total de Receitas R\$ (.*)/', $buffer, $arr)) {
 					$valor = round(trim($arr[1]), 2);
+				}
+				
+				if (preg_match('/N&atilde;o h&aacute; entrega de presta&ccedil;&atilde;o de contas &agrave; Justi&ccedil;a Eleitoral/', $buffer, $arr)) {
+					$valor = "Sem prestacao";
+				}
+				
+				if (preg_match('/A presta&ccedil;&atilde;o de contas foi entregue sem lan&ccedil;amentos  de receitas/', $buffer, $arr)) {
+					$valor = "Sem lancamento";
+				}
+				
+				if (preg_match('/Presta&ccedil;&atilde;o de contas entregue. Arquivo corrompido. Impossibilidade de apresentar receitas/', $buffer, $arr)) {
+					$valor = "Arquivo corrompido";
 				}
 			}
 		}
