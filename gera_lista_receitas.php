@@ -4,7 +4,7 @@ $dados = "";
 if (($handle = fopen("sequencial_candidatos.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 		$file = "files/receitas_".trim($data[2]).".html";
-		echo $file."\r\n";
+		echo trim($data[2])."; ".$file."\r\n";
 		
 		$handle2 = @fopen($file, "r");
 		if ($handle2) {
