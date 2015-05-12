@@ -1,10 +1,10 @@
 <?php
 
 $dados = "";
-if (($handle = fopen("sequencial_candidatos.csv", "r")) !== FALSE) {
+if (($handle = fopen("input/listagem_deputados.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-		$file = "files/receitas_".trim($data[2]).".html";
-		echo trim($data[2])."; ".$file."\r\n";
+		$file = "files/receitas_".trim($data[0]).".html";
+		echo trim($data[0])."; ".$file."\r\n";
 		
 		$handle2 = @fopen($file, "r");
 		if ($handle2) {
@@ -29,7 +29,7 @@ if (($handle = fopen("sequencial_candidatos.csv", "r")) !== FALSE) {
 				}
 			}
 		}
-		$dados .= $data[2]."; ".$valor."\r\n";
+		$dados .= $data[0]."; ".$valor."\r\n";
 	}
 }
 
