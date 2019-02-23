@@ -1,0 +1,1466 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=wNdUZYXxuWUANYawLxDIxSaX" method="post">
+            <input type="hidden" name="sqCandidato" value="110000000275" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=110000000275&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="55400" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="RENATO LOCATELLI DOS SANTOS" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="MT" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PSD" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;554000700000MT2189227&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;21/10/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALNIR IORA - ME
+                                        </td>
+                                        <td align="center">
+                                            33.692.195/0001-37
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Materiais de expediente
+                                        </td>
+                                        <td align="right">
+                                            164.8
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2958
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANDRIELLY DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            051.079.771-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0006
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO CDI LTDA
+                                        </td>
+                                        <td align="center">
+                                            04.056.929/0001-93
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1810.87
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            14906
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT / DIMITRE MELLO MINUCCI  - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ECONOMIA COMERCIO E INDUSTRIA DE ALIMENTOS LTDA
+                                        </td>
+                                        <td align="center">
+                                            37.453.735/0001-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            550.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            48872
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EVANILDA GOMES DO NASCIMNETO
+                                        </td>
+                                        <td align="center">
+                                            001.310.051-38
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0009
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GRAFICA MULTICOR LTDA
+                                        </td>
+                                        <td align="center">
+                                            14.931.018/0001-11
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            12000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            3817
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA CLEONICE SILVA DIAS
+                                        </td>
+                                        <td align="center">
+                                            204.846.743-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0003
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA TEREZA DO CARMO
+                                        </td>
+                                        <td align="center">
+                                            550.259.191-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MEI - ADELAR BIN 46075569120
+                                        </td>
+                                        <td align="center">
+                                            14.338.732/0001-09
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            113
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MEI - ENDRYGO SANTANA FIOREZE 02057213110
+                                        </td>
+                                        <td align="center">
+                                            18.630.677/0001-79
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            52
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MEI - IOLANDA SOUZA DOS SANTOS 48753050100
+                                        </td>
+                                        <td align="center">
+                                            15.333.886/0001-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por carros de som
+                                        </td>
+                                        <td align="right">
+                                            1600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            18
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            N. V. MULLER &amp; CIA LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            07.264.860/0001-81
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            80.8
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1714
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT / PAULO CESAR VIEIRA MACHADO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT / RAIMUNDO JOSE DOS SANTOS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT / RENATO LOCATELLI DOS SANTOS - PSD - MT - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RICARDO LOCATELLI DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            010.572.331-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROSA MARTINS PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            028.375.041-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0004
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT / ROSANGELA LIMA LOCATELLI DOS SANTOS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SAMIRA LUZIA VIEIRA SANTANA
+                                        </td>
+                                        <td align="center">
+                                            028.001.881-97
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0005
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TATIANE DA SILVA ARAUJO CONVENIENCIA ME
+                                        </td>
+                                        <td align="center">
+                                            19.359.640/0001-10
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            &Aacute;gua
+                                        </td>
+                                        <td align="right">
+                                            384.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            179
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            TIAGO MIGUEL DANKE
+                                        </td>
+                                        <td align="center">
+                                            021.471.891-38
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0008
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            UESLEI DAVID SOARES
+                                        </td>
+                                        <td align="center">
+                                            025.377.641-45
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0007
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VALDION DA SILVA ALVES
+                                        </td>
+                                        <td align="center">
+                                            547.400.611-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0010
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VANESSA DO SANTOS LIMA
+                                        </td>
+                                        <td align="center">
+                                            069.766.681-60
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0002
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            13.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            5.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            20.3
+                                            
+                                        </td>
+                                        <td align="left">
+                                            RENATO LOCATELLI DOS SANTOS - DEPUTADO ESTADUAL - PSD - MT
+                                        </td>
+                                        <td align="left">
+                                            20.574.916/0001-62
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 36079.270000000004
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

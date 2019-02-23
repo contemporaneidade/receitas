@@ -1,0 +1,3434 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=kkU1bDPzcIWyzQYGOxeDTzVV" method="post">
+            <input type="hidden" name="sqCandidato" value="220000000194" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=220000000194&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="15555" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="JURACY BARBOSA MOREIRA" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="RO" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PMDB" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;155550700000RO4248331&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;24/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADEMILSON SATURNINO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            134.676.128-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            005
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ADEMIR DE SOUZA
+                                        </td>
+                                        <td align="center">
+                                            576.577.692-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADEMIR DE SOUZA
+                                        </td>
+                                        <td align="center">
+                                            576.577.692-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            002
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ADERI CARLOS LEMOS DE MEIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALESANDRA LAGACIO VIEIRA 61126730297
+                                        </td>
+                                        <td align="center">
+                                            18.720.502/0001-52
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por carros de som
+                                        </td>
+                                        <td align="right">
+                                            7500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            86
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / AMILTON DE FIGUEIREDO PAIVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANA MARIA BORGES DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            020.213.872-08
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            007
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ANDERSON FERREIRA DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ANDERSON SILVA AGUIAR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ANDRE HOLANDER - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ANDREIA PAES GUARNIER - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ANTONINHO DE MARCOS FILHO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ARROBA ARTS COMUNICACAO VISUAL LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            11.903.434/0001-18
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            233
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ARROBA ARTS COMUNICACAO VISUAL LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            11.903.434/0001-18
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            1350.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            203
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO PIMENTA BUENO LTDA
+                                        </td>
+                                        <td align="center">
+                                            04.380.678/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            16050.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            24988
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO PIMENTA BUENO LTDA
+                                        </td>
+                                        <td align="center">
+                                            04.380.678/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1023.51
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            024254
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO PIMENTA BUENO LTDA
+                                        </td>
+                                        <td align="center">
+                                            04.380.678/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            16048.9
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            024257
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CLAUDEMIR RECHE DE CARVALHO
+                                        </td>
+                                        <td align="center">
+                                            668.648.442-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens im&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            1300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            014
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAUDIOMAR RODRIGUES DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            693.796.882-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            013
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / DEIVID RODRIGUES SOUZA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / DEVANIR DE OLIVEIRA LOURENZONI - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / DEVANIR GON&Ccedil;ALVES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDER LOUBAQUE DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            031.728.822-92
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            009
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / EDIMILSON DE JESUS RIBEIRO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2513.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ELEANDER DIAS LEIT&Atilde;O - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2513.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ELIAS ALVES DE ARAUJO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ERIONES PRATTI - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1933.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ERIVELTON BISPO SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / EZAILDO CID DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FERNANDA NASCIMENTO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            031.202.722-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            010
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / FRANCINETE TERESA DE MIRANDA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / FRANCISCO JOSE ARAUJO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / GENIVAL MOREIRA DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / GIOVANE VIEIRA CORDEIRO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4060.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ILDOMAR SOUSA DE OLIVEIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2126.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / ISAIAS COSTA DA SILVA JUNIOR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / IZAIAS COSTA SOARES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JADES BARBOSA FERREIRA
+                                        </td>
+                                        <td align="center">
+                                            551.620.961-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            003
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1546.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JANAINA DA SILVA MALHEIROS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANETE RODRIGUES CHAVES TETTI
+                                        </td>
+                                        <td align="center">
+                                            575.960.422-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            596.39
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0012014
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2126.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JOSE BATISTA DOS SANTOS NETO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3866.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JOSENETE ODILON RIBEIRO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JOSIMAR MANSKE - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1933.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JOSIMAR TARDIM - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JO&Atilde;O PEREIRA DE FARIA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1546.66
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / JO&Atilde;O QUEIROZ SENARIO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / LAERCIO FRANCISCO DE SOUZA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / LAZARO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / LUCIANO KUSTER - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / LUIZ ALMEIDA DIAS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / MARINETE KRUGER - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARISTANIA PEREIRA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            348.713.142-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            004
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1546.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / MARIUZA CARLOS VIEIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / OSMAIR ROCHA PRATES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            R FARIA INDUSTRIA GRAFICA E EDITORA - ME
+                                        </td>
+                                        <td align="center">
+                                            10.267.622/0001-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            195
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1256.66
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / REINALDO TABORDA RIBAS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ROMILDA SIRLEI CARDOSO
+                                        </td>
+                                        <td align="center">
+                                            861.164.872-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            008
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROSIMEIRE DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            024.224.892-65
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            006
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1933.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / RUBENS NUNES DE SOUZA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SAMMUEL VALENTIM BORGES
+                                        </td>
+                                        <td align="center">
+                                            713.892.532-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            012
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / SIDINEY ALMEIDA SANTOS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1550.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / SILVANA BORGES COSTA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / SILVIO ANTONIO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1933.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / SILVIO SANTOS PEREIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / TRANSPORTES SAO CRISTOVAO LTDA EPP - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3673.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / VALDEIR DE ALCANTARA MARTINS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1520.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / VALMIR FERREIRA DE AFONSECA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VERONICE RECHE DE CARVALHO
+                                        </td>
+                                        <td align="center">
+                                            711.994.382-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            740.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            011
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3866.66
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO / WILLIAN MAURICIO DOS SANTOS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            8.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.65
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            28/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            28/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.65
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            8.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            JURACY BARBOSA MOREIRA - DEPUTADO ESTADUAL - PMDB - RO
+                                        </td>
+                                        <td align="left">
+                                            20.582.883/0001-00
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 160115.53999999995
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

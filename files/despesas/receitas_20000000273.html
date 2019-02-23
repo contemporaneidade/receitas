@@ -1,0 +1,2409 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=hjxidBNK3lL97xbSDQVkKrxt" method="post">
+            <input type="hidden" name="sqCandidato" value="20000000273" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=20000000273&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="1599" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="FERNANDO ANTÔNIO MACEDO HOLANDA" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="AL" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PMDB" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;015990600000AL4251154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;05/12/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANDREZA ALMEIDA NOGUEIRA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            103.474.304-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AYLANA CAROLINE VIEIRA CAVALCANTE
+                                        </td>
+                                        <td align="center">
+                                            121.442.334-54
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            BARBARA KELLY DE LIMA MOTA VILELA
+                                        </td>
+                                        <td align="center">
+                                            085.959.714-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / BARTYRA MOREIRA DE FARIAS BRAGA - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAUDIA LAIS VILELA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            071.429.684-86
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DAMI&Atilde;O DA SILVA BUARQUE
+                                        </td>
+                                        <td align="center">
+                                            023.498.264-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            746.76
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DAMI&Atilde;O DA SILVA BUARQUE
+                                        </td>
+                                        <td align="center">
+                                            023.498.264-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            E P IND EDITORA LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.954.523/0001-89
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            24/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            20000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2622
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3039.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / ELEI&Ccedil;&Atilde;O 2014 EDUARDO ANTONIO MACEDO HOLANDA - PSD - AL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            305.9
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / ELEI&Ccedil;&Atilde;O 2014 EDUARDO ANTONIO MACEDO HOLANDA - PSD - AL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / ELEI&Ccedil;&Otilde;ES 2014 JOSE RENAN VASCONCELOS CALHEIROS FILHO - PMDB - AL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FABIANA GLEIDE LAMENHA SALES  
+                                        </td>
+                                        <td align="center">
+                                            099.999.564-24
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FABIO CHAVEIRO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            032.243.521-83
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / FERNANDO ANTONIO MACEDO HOLANDA - PMDB - AL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FRANKLIN N DE MELO ESTUDIOS - ME
+                                        </td>
+                                        <td align="center">
+                                            12.866.103/0001-18
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de jingles, vinhetas e slogans
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            20142
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            IDEIA EDITORA GRAFICA E EMBALAGENS LTDA
+                                        </td>
+                                        <td align="center">
+                                            00.631.480/0001-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            28/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            30000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            105
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            IDEIA EDITORA GRAFICA E EMBALAGENS LTDA
+                                        </td>
+                                        <td align="center">
+                                            00.631.480/0001-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            20000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            134
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            IRACILDA MARIA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            073.555.384-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JADENILDA OLIVEIRA SILVA
+                                        </td>
+                                        <td align="center">
+                                            080.904.274-64
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE NILSON LUIZ DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            740.166.104-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            746.76
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE NILSON LUIZ DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            740.166.104-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JULIANA OLIVEIRA DE SOUSA
+                                        </td>
+                                        <td align="center">
+                                            702.234.924-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JULIANA RODRIGUES DE ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            089.084.494-18
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LAIS CRISTINA SANTOS SILVA
+                                        </td>
+                                        <td align="center">
+                                            107.990.764-57
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LILIAN STEPHANIE DOS SANTOS LIMA
+                                        </td>
+                                        <td align="center">
+                                            116.707.794-67
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZ EDUARDO BARRETO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            083.960.474-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARCIA ANDREIA FRABRICIO LOPES
+                                        </td>
+                                        <td align="center">
+                                            014.618.604-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARCIA RITA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            090.492.054-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARCKLEY VIEIRA DE SOUZA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            049.629.834-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            117869
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL / MARCOS ANTONIO MACEDO HOLANDA - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA NATALIA EDUARDO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            125.363.194-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA SEVERINA DA CONCEI&Ccedil;&Atilde;O
+                                        </td>
+                                        <td align="center">
+                                            056.534.354-81
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIANA PEREIRA DA SILVA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            120.264.884-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            221
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            28/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            5900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            212
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            20000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            322
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            30000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            283
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NOGUEIRA&middot; ALBUQUERQUE E FREIRE ASSOCIADOS S/S
+                                        </td>
+                                        <td align="center">
+                                            14.876.708/0001-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            544
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            NOVA S2 COMUNICA&Ccedil;&Atilde;O LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            13.425.180/0001-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            24/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            50000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            059
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PATRICIA GOMES DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            121.284.884-51
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAFAELA TOLEDO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            098.526.084-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REGINA MENEZES DE PAULA
+                                        </td>
+                                        <td align="center">
+                                            101.498.344-46
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ROSANGELA FIRMINO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            121.426.874-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SILVANA DE ARAUJO SILVA - ME
+                                        </td>
+                                        <td align="center">
+                                            13.106.060/0001-35
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            28/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            3400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            109
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            THAYNARA VIEIRA BATISTA
+                                        </td>
+                                        <td align="center">
+                                            119.285.214-10
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            23/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            22.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            33.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Impostos, contribui&ccedil;&otilde;es e taxas
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            24/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            41.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            FERNANDO ANT&Ocirc;NIO MACEDO HOLANDA - DEPUTADO FEDERAL - PMDB - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.116/0001-10
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 217896.21999999997
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

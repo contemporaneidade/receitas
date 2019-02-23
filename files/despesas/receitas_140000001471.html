@@ -1,0 +1,1425 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=JpN7PPI+1TvMOBRXlMGcQQk7" method="post">
+            <input type="hidden" name="sqCandidato" value="140000001471" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=140000001471&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="20223" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="ADINALDA DA COSTA SOUZA" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="PA" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PSC" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;202230700000PA8029272&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;08/06/2015
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            3 D COM DE MATERIAS DE CONSTRU&Ccedil;&Atilde;O LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.492.054/0001-23
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            1059.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000000120
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ALESSANDRA DANIEL MELO
+                                        </td>
+                                        <td align="center">
+                                            799.913.512-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000021730
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALEXANDRE  DOS REIIS LISBOA NETTO
+                                        </td>
+                                        <td align="center">
+                                            018.034.892-27
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ALEXANDRE DOS REIS LISBOA FILHO
+                                        </td>
+                                        <td align="center">
+                                            463.542.982-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            05
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALINE DANIEL MELO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            842.746.622-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000021732
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CLEIDE MOREIRA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            562.373.402-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA / COMIT&Ecirc; FINANCEIRO &Uacute;NICO - PSDB - PA - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA / COMIT&Ecirc; FINANCEIRO &Uacute;NICO - PSDB - PA - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DANIEL GOUVEIA GARCIA
+                                        </td>
+                                        <td align="center">
+                                            875.684.461-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            16
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DANNIELY APARECIDA PENA COSTA
+                                        </td>
+                                        <td align="center">
+                                            875.743.812-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            10
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DINAMICA VARIEDADE LTDA ME 
+                                        </td>
+                                        <td align="center">
+                                            12.188.333/0001-75
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            9282.72
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000000038
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DINAMICA VARIEDADE LTDA ME 
+                                        </td>
+                                        <td align="center">
+                                            12.188.333/0001-75
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            1056.84
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000000066
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PSC - PA - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PSC - PA - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELIZABETE PINHEIRO LISBOA
+                                        </td>
+                                        <td align="center">
+                                            043.851.792-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            03
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA / FONTINELLES &amp; FONTINELLES LTDA -ME - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ILAILDE NASCIMENTO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            643.263.652-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            15
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            J C SILVA COMERCIO
+                                        </td>
+                                        <td align="center">
+                                            00.590.313/0001-47
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            2000.94
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000000452
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOANIL DE OLIVEIRA ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            655.957.262-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            09
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JORGE FERREIRA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            608.791.492-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            07
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JO&Atilde;O SERGIO DE SOUZA PENA
+                                        </td>
+                                        <td align="center">
+                                            243.499.842-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MONICA MARGARETE  DOS SANTOS ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            519.166.652-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            06
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ODINALDO RAIMUNDO BRAZAO
+                                        </td>
+                                        <td align="center">
+                                            423.791.302-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            12
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PATRICK NASCIMENTO DA COSTA 
+                                        </td>
+                                        <td align="center">
+                                            035.473.302-89
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            14
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SIRLENE SANTA BRIGIDA LISBOA
+                                        </td>
+                                        <td align="center">
+                                            461.855.932-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            04
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            TRINDADE DO SOCORRO DOS SANTOS COSTA
+                                        </td>
+                                        <td align="center">
+                                            785.901.592-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            08
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            WERICSSOM LUIZ REIS DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            024.736.352-93
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ADINALDA DA COSTA SOUZA - DEPUTADO ESTADUAL - PSC - PA
+                                        </td>
+                                        <td align="left">
+                                            20.797.278/0001-49
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            13
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 22199.999999999996
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

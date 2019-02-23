@@ -1,0 +1,2532 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=0LI-V-EjNozmrmhtoiU3zuJv" method="post">
+            <input type="hidden" name="sqCandidato" value="200000000196" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=200000000196&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="40222" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="GLADYER LINHARES GODEIRO" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="RN" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PSB" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;402220700000RN3006895&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;15/12/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            A A S DE ALMEIDA ME
+                                        </td>
+                                        <td align="center">
+                                            07.277.021/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de programas de r&aacute;dio, televis&atilde;o ou v&iacute;deo
+                                        </td>
+                                        <td align="right">
+                                            10000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0000000000078
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            A E G COMERCIO SERVI&Ccedil;OS LTDA
+                                        </td>
+                                        <td align="center">
+                                            13.443.420/0001-94
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            1800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            0155
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADELCIO DA SILVEIRA
+                                        </td>
+                                        <td align="center">
+                                            898.641.071-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            009
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ADILSON BORGES DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            089.710.574-59
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            367.76
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            008
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AFONSO CELSO PEREIRA BARRETO
+                                        </td>
+                                        <td align="center">
+                                            211.320.628-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            004
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ALVARO DE OLIVEIRA E CIA LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.399.834/0001-23
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            9058
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALVARO DE OLIVEIRA E CIA LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.399.834/0001-23
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            2095.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            8801
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ALVARO DE OLIVEIRA E CIA LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.399.834/0001-23
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1409.99
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            8767
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANDR&Eacute;IA ALMEIDA BERNARDO 
+                                        </td>
+                                        <td align="center">
+                                            938.780.604-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CIA BRASILEIRA DE DISTRIBUI&Ccedil;&Atilde;O 
+                                        </td>
+                                        <td align="center">
+                                            47.508.411/1345-19
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            29.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            101926
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CIRNE IRM&Atilde;OS &amp; CIA LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.326.720/0001-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            50.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000248482
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EMANUEL NARCISIO DE OLIVEIRA COSTA
+                                        </td>
+                                        <td align="center">
+                                            013.112.254-12
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            350.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            005
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            F JOSE DA COSTA ME
+                                        </td>
+                                        <td align="center">
+                                            70.143.110/0001-98
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            296
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            F PIMENTEL GUERRA ME
+                                        </td>
+                                        <td align="center">
+                                            16.848.719/0001-17
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            17/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            380.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            003425
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            F PIMENTEL GUERRA ME
+                                        </td>
+                                        <td align="center">
+                                            16.848.719/0001-17
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            003341
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN / FRANCISCO JOSE DA COSTA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1770.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN / GLADYER LINHARES GODEIRO - PSB - RN - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GLENIO KIEV C DA C E NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            903.934.304-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            13
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE GLEDISON LINHARES GODEIRO
+                                        </td>
+                                        <td align="center">
+                                            967.239.044-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            12
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LEONARDO RODRIGUES ALVES
+                                        </td>
+                                        <td align="center">
+                                            492.100.847-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            002
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LEONARDO RODRIGUES ALVES
+                                        </td>
+                                        <td align="center">
+                                            492.100.847-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            008
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LEONEL GRACA GENEROSO PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            279.357.101-63
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            007
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LOTUS INDUSTRIA E COMERCIO 
+                                        </td>
+                                        <td align="center">
+                                            40.787.079/0001-67
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            8.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            38600
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCAS GRA&Ccedil;A GENEROSO PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            037.069.271-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            002
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUIZ HENRIQUE BENJAMIM DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            14.079.477/0001-19
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            M B COM E DER DE PET LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.345.698/0001-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            M B COM E DER DE PET LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.345.698/0001-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000006602
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            M B COM E DER DE PET LTDA
+                                        </td>
+                                        <td align="center">
+                                            08.345.698/0001-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            00000
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            6930.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN / NICOLAU OTTO DOS ANJOS FONTES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NICOLAU OTTO DOS ANJOS FONTES
+                                        </td>
+                                        <td align="center">
+                                            059.188.234-50
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            870.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            NICOLAU OTTO DOS ANJOS FONTES
+                                        </td>
+                                        <td align="center">
+                                            059.188.234-50
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1890.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN / NICOLAU OTTO DOS ANJOS FONTES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PRIMACASA COMERCIO DE UTILIDADES EIRELI
+                                        </td>
+                                        <td align="center">
+                                            09.625.502/0001-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            11.9
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000001635
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PRIMACASA COMERCIO DE UTILIDADES EIRELI
+                                        </td>
+                                        <td align="center">
+                                            09.625.502/0001-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            59.9
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000001634
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ROSENILDE PEREIRA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            619.399.864-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            180.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            960.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1139
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3182.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1215
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            150.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1198
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2525.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1197
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2650.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1257
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SEBASTIAO DA COSTA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            08.648.228/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0000001138
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SUPERMERCADO NORDEST&Atilde;O LTDA.
+                                        </td>
+                                        <td align="center">
+                                            08.030.363/0009-39
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            116.73
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            123175
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            WILK TORRES DAMASCENO
+                                        </td>
+                                        <td align="center">
+                                            060.302.814-45
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            1260.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            GLADYER LINHARES GODEIRO - DEPUTADO ESTADUAL - PSB - RN
+                                        </td>
+                                        <td align="left">
+                                            20.564.098/0001-17
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 64935.380000000005
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

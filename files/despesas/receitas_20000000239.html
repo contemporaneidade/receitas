@@ -1,0 +1,3270 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=WKXzL6OVtfnWfMEfT5vpU-xM" method="post">
+            <input type="hidden" name="sqCandidato" value="20000000239" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=20000000239&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="55555" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="ALCIDES DE ANDRADE NETO" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="AL" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PSD" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;555550700000AL1906271&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;20/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALBA DOLORES DE ATAIDE SILVA-ME
+                                        </td>
+                                        <td align="center">
+                                            02.752.622/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            6245
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2640.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / ALLAN HENNYNG COSTA DE OLIVEIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / ALLAN HENNYNG COSTA DE OLIVEIRA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANDERSON LUIZ DE ARAUJO PEREIRA-ME
+                                        </td>
+                                        <td align="center">
+                                            10.193.887/0001-35
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            25555.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            83
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANTONIO ALFREDO MARINHO
+                                        </td>
+                                        <td align="center">
+                                            099.394.584-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            002
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CAIO RODRIGO ALBUQUERQUE NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            100.088.814-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            023
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CARLOS CESAR ARAUJO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            384.843.314-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            022
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CARLOS CESAR ARAUJO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            384.843.314-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CARLOS NASCIMENTO TAVARES 04982260427
+                                        </td>
+                                        <td align="center">
+                                            13.517.270/0001-16
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Pesquisas ou testes eleitorais
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            17
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CHRISTIAN BARBOSA LOBO
+                                        </td>
+                                        <td align="center">
+                                            037.636.794-64
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            034
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAUDIA HELENA COSTA TAVARES
+                                        </td>
+                                        <td align="center">
+                                            044.878.734-28
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            032
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CONCEITO COMUNICA&Ccedil;&Atilde;O INTEGRADA LTDA
+                                        </td>
+                                        <td align="center">
+                                            00.404.419/0001-09
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            602
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DISTRIBUIDORA DE VEICULOS CONFIAN&Ccedil;A LTDA
+                                        </td>
+                                        <td align="center">
+                                            12.396.339/0005-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            3500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1145
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDMUNDO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            026.376.444-35
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            040
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / ELEICOES 2014 JOSE RENAN VASCONCELOS CALHEIROS FILHO GOVERNADOR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ELENIR MARIA ROGERIO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            071.804.124-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            042
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EMPRESA BRASILEIRA DE CORREIOS E TELEGRAFOS
+                                        </td>
+                                        <td align="center">
+                                            34.028.316/1570-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            3790.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            013
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EVERTON TENORIO DANTAS
+                                        </td>
+                                        <td align="center">
+                                            053.415.434-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            026
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EVERTON VASCONCELOS
+                                        </td>
+                                        <td align="center">
+                                            089.480.174-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            031
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FERNANDA ALVES FREITAS
+                                        </td>
+                                        <td align="center">
+                                            331.948.278-55
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            010
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FERNANDA ALVES FREITAS
+                                        </td>
+                                        <td align="center">
+                                            331.948.278-55
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            017
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FERNANDO VINICIUS DE SOUZA ANDRADE 54009294434
+                                        </td>
+                                        <td align="center">
+                                            14.946.471/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            8
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GENAURO PONTES COELHO
+                                        </td>
+                                        <td align="center">
+                                            007.760.094-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            24/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            850.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            025
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GYSELE GON&Ccedil;ALVES FERREIRA
+                                        </td>
+                                        <td align="center">
+                                            047.909.624-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            024
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            HELIO PEREIRA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            902.614.534-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            003
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANILSON SOUZA NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            227.417.204-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            027
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE CARLOS DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            524.901.814-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            10000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            028
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE FRANCISCO DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            842.630.404-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            007
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1980.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / JOSE FRANCISCO DA SILVA ELETROS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            720.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / JOSE FRANCISCO DA SILVA ELETROS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE FRANCISCO DA SILVA ELETROS
+                                        </td>
+                                        <td align="center">
+                                            09.193.727/0001-07
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Materiais de expediente
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            57
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE MEDEIROS BATISTA
+                                        </td>
+                                        <td align="center">
+                                            036.970.654-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            041
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE RAFAEL TORRES BARROS
+                                        </td>
+                                        <td align="center">
+                                            241.218.274-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            12000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            021
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JUNILEY MAGNO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            048.922.934-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            004
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JUNILEY MAGNO DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            048.922.934-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            033
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            KLISMAIR ALMEIDA DE ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            11.778.614/0001-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de programas de r&aacute;dio, televis&atilde;o ou v&iacute;deo
+                                        </td>
+                                        <td align="right">
+                                            4850.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            105
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            KLISMAIR ALMEIDA DE ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            11.778.614/0001-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de programas de r&aacute;dio, televis&atilde;o ou v&iacute;deo
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            103
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZ ANTONIO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            580.054.048-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            016
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUIZ ANTONIO SANTOS
+                                        </td>
+                                        <td align="center">
+                                            580.054.048-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            008
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZ CARLOS DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            239.454.194-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            015
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUIZ CARLOS DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            239.454.194-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            029
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / LUIZ MAURICIO DOS SANTOS MARQUES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2640.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / LUIZ MAURICIO DOS SANTOS MARQUES - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/11/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / LUIZ ROBERTO BARROS FARIAS - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MANOEL DOS SANTOS JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            042.688.694-17
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            012
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            4290.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / MARGARIDA ALBUQUERQUE NASCIMENTO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARGARIDA ALBUQUERQUE NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            310.314.204-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            010
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3770.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / MARGARIDA ALBUQUERQUE NASCIMENTO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            25000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            238
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            4990.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            226
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MAURICIO DA SILVA SANTOS - ME
+                                        </td>
+                                        <td align="center">
+                                            07.417.921/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            3800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            340
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / MAURICIO FRANCISCO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / MAURICIO FRANCISCO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/11/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / MAURICIO FRANCISCO DA SILVA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            10200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / PRINT-SHOP GRAFICA E EDITORA LTDA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL / PRINT-SHOP GRAFICA E EDITORA LTDA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PRINT-SHOP GRAFICA E EDITORA LTDA
+                                        </td>
+                                        <td align="center">
+                                            02.690.955/0001-43
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            18520.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            189
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REGNO ARAUJO DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            049.815.304-55
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            006
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SAMUEL MOTA MENDON&Ccedil;A JUNIOR - ME
+                                        </td>
+                                        <td align="center">
+                                            17.705.246/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            5250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            54
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SAMUEL MOTA MENDON&Ccedil;A JUNIOR - ME
+                                        </td>
+                                        <td align="center">
+                                            17.705.246/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de jingles, vinhetas e slogans
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            55
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SAMUEL MOTA MENDON&Ccedil;A JUNIOR - ME
+                                        </td>
+                                        <td align="center">
+                                            17.705.246/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            10666.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            57
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SAMUEL MOTA MENDON&Ccedil;A JUNIOR - ME
+                                        </td>
+                                        <td align="center">
+                                            17.705.246/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            5500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            62
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SERGIO PAULO RODRIGUES NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            123.747.334-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            009
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SERGIO PAULO RODRIGUES NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            123.747.334-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            3500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            018
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SERGIO PAULO RODRIGUES NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            123.747.334-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            18
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SIDNEY GOUVEIA VESPA DA SILVA ME
+                                        </td>
+                                        <td align="center">
+                                            14.021.812/0001-28
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            22000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            54
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VALDI FERNANDO COSTA
+                                        </td>
+                                        <td align="center">
+                                            148.083.404-10
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            020
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VALMIR LEITE DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            050.390.844-47
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            005
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VERA CRISTINA ENGRACIO BORGES
+                                        </td>
+                                        <td align="center">
+                                            888.660.174-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            6500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            037
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VERA CRISTINA ENGRACIO BORGES
+                                        </td>
+                                        <td align="center">
+                                            888.660.174-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            038
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            WAGNER NUNES DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            032.738.044-67
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            035
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            10.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ALCIDES DE ANDRADE NETO - DEPUTADO ESTADUAL - PSD - AL
+                                        </td>
+                                        <td align="left">
+                                            20.578.893/0001-64
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 299983.54
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

@@ -1,0 +1,2368 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=PEfC8B4I7Pn9PzQ5ahrWnrd1" method="post">
+            <input type="hidden" name="sqCandidato" value="110000000063" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=110000000063&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="44222" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="DENIZE ZANCHI DE OLIVEIRA" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="MT" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PRP" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;442220700000MT6249060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;09/10/2015
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANA CAROLINA GOMES DA ROSA MUNIZ
+                                        </td>
+                                        <td align="center">
+                                            999.944.101-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANA CLAUDIA ESTEVAO
+                                        </td>
+                                        <td align="center">
+                                            928.923.021-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1420.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANA MARIA RODRIGUES SILVA
+                                        </td>
+                                        <td align="center">
+                                            208.423.501-44
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DEJENANE ZANANDREA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            886.470.211-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DEVANILDO PEREIRA DA MATA
+                                        </td>
+                                        <td align="center">
+                                            972.659.421-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DINALVA BARBOSA GUIMARAES
+                                        </td>
+                                        <td align="center">
+                                            206.853.005-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDINEUZA DE JESUS PROEN&Ccedil;A
+                                        </td>
+                                        <td align="center">
+                                            983.940.371-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1410.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDITORA DE LIZ LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            07.773.026/0001-11
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            489
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1680.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT / ELEICOES 2014 JOSE PEDRO GONCALVES TAQUES GOVERNADOR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT / ELEICOES 2014 JOSE PEDRO GONCALVES TAQUES GOVERNADOR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3659.41
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT / ELEICOES 2014 JOSE PEDRO GONCALVES TAQUES GOVERNADOR - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ELIEL TENORIO PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            535.911.781-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELIEL TENORIO PEREIRA 53591178187
+                                        </td>
+                                        <td align="center">
+                                            12.790.236/0001-58
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de jingles, vinhetas e slogans
+                                        </td>
+                                        <td align="right">
+                                            700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            39
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EUCLIDES CONCEICAO RODRIGUES
+                                        </td>
+                                        <td align="center">
+                                            487.560.831-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FABIO MARIANO DE ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            688.254.631-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            07/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GLOBAL FEST
+                                        </td>
+                                        <td align="center">
+                                            00.634.942/0001-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            78.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            8365
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GRICIELA PINHEIRO ROCHA
+                                        </td>
+                                        <td align="center">
+                                            016.812.881-09
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            HERBERT MATTOS DE PAULA
+                                        </td>
+                                        <td align="center">
+                                            002.425.421-58
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JANAINA SAMPAIO RODRIGUES CAMPOS
+                                        </td>
+                                        <td align="center">
+                                            571.683.931-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JEFERSON JEMES DE PAULA
+                                        </td>
+                                        <td align="center">
+                                            704.508.291-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JEFERSON JEMES DE PAULA
+                                        </td>
+                                        <td align="center">
+                                            704.508.291-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JEFERSON JEMES DE PAULA
+                                        </td>
+                                        <td align="center">
+                                            704.508.291-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE CARLOS DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            460.583.891-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            KATIA REGINA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            019.624.861-25
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            KLAITON DE SOUZA ME
+                                        </td>
+                                        <td align="center">
+                                            08.884.059/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5710.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            541
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCENIR FERREIRA DELGADO
+                                        </td>
+                                        <td align="center">
+                                            487.273.501-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1506.55
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARCELINO ZANCHI JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            263.037.508-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13339
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            17/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13678
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13328
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13354
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13379
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARMELEIRO AUTO POSTO LTDA - PRAINHA
+                                        </td>
+                                        <td align="center">
+                                            05.082.661/0003-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            13392
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NF COM DEROUPAS FEMININA E MASCULINA LTDA
+                                        </td>
+                                        <td align="center">
+                                            06.122.264/0001-02
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            924.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            146
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAPHAELLA CELLINA MARTINS FERREIRA
+                                        </td>
+                                        <td align="center">
+                                            730.558.671-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RENATA SANTES
+                                        </td>
+                                        <td align="center">
+                                            004.020.651-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RENATO FERNANDES DE SOUZA
+                                        </td>
+                                        <td align="center">
+                                            318.373.951-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROBSON MARIANO DE ARAUJO
+                                        </td>
+                                        <td align="center">
+                                            688.254.551-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TONNY MOREIRA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            957.448.191-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            V H DOS SANTOS FOTOGRAFIA
+                                        </td>
+                                        <td align="center">
+                                            15.007.219/0001-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            606
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VALQUIRIA LEITE DE ALMEIDA
+                                        </td>
+                                        <td align="center">
+                                            021.894.301-60
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            2110.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            12/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            10.55
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            50.45
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            39.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            DENIZE ZANCHI DE OLIVEIRA - DEPUTADO ESTADUAL - PRP - MT
+                                        </td>
+                                        <td align="left">
+                                            20.567.817/0001-53
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 54389.41000000001
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

@@ -1,0 +1,2286 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=2Q5pJuI9Y-bWqUx6Li56lBTk" method="post">
+            <input type="hidden" name="sqCandidato" value="210000000208" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=210000000208&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="25425" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="ROQUE DICK" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="RS" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="DEM" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;254250700000RS0748048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;19/03/2015
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            3 I OFICINA ADMINISTRATIVA EMPRESARIAL LTDA.
+                                        </td>
+                                        <td align="center">
+                                            04.535.306/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Cria&ccedil;&atilde;o e inclus&atilde;o de p&aacute;ginas na internet
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000318
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANGELICA MALISZEWSKI
+                                        </td>
+                                        <td align="center">
+                                            023.453.010-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANGELICA MALISZEWSKI
+                                        </td>
+                                        <td align="center">
+                                            023.453.010-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ARTHUR ANDREATTA DE BRUM
+                                        </td>
+                                        <td align="center">
+                                            019.665.470-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ARTHUR ANDREATTA DE BRUM
+                                        </td>
+                                        <td align="center">
+                                            019.665.470-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CANPER INDUSTRIA E COMERCIO LTDA
+                                        </td>
+                                        <td align="center">
+                                            18.666.261/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Materiais de expediente
+                                        </td>
+                                        <td align="right">
+                                            2400.1
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            296
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            123.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            06/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            808.16
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2350.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            123.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            123.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            533.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            123.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS / ELEI&Ccedil;&Atilde;O 2014 - ONIX DORNELLESLORENZONI DEPUTADO FEDERAL - DEM - RS - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GRAZIELE BEZERRA FORNAZIER
+                                        </td>
+                                        <td align="center">
+                                            038.917.561-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GRAZIELE BEZERRA FORNAZIER
+                                        </td>
+                                        <td align="center">
+                                            038.917.561-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GRUPO GAZETA DO SUL S/A
+                                        </td>
+                                        <td align="center">
+                                            95.424.834/0001-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            880.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            135370
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GR&Aacute;FICA GARTEN SUL LTDA
+                                        </td>
+                                        <td align="center">
+                                            94.947.173/0001-65
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            12/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3070.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            32534
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GR&Aacute;FICA GARTEN SUL LTDA
+                                        </td>
+                                        <td align="center">
+                                            94.947.173/0001-65
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            12/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            4000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            32263
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GR&Aacute;FICA GARTEN SUL LTDA
+                                        </td>
+                                        <td align="center">
+                                            94.947.173/0001-65
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            670.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            32369
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            INACIO SILVESTRE LAWISCH
+                                        </td>
+                                        <td align="center">
+                                            268.706.730-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            INACIO SILVESTRE LAWISCH
+                                        </td>
+                                        <td align="center">
+                                            268.706.730-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANICE JUSSARA MATTJE
+                                        </td>
+                                        <td align="center">
+                                            014.645.780-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JANICE JUSSARA MATTJE
+                                        </td>
+                                        <td align="center">
+                                            014.645.780-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANICE TERESINHA SCHULZ
+                                        </td>
+                                        <td align="center">
+                                            764.801.780-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JANICE TERESINHA SCHULZ
+                                        </td>
+                                        <td align="center">
+                                            764.801.780-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JAQUELINA HENN
+                                        </td>
+                                        <td align="center">
+                                            483.972.960-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JAQUELINE HAMESTER DICK
+                                        </td>
+                                        <td align="center">
+                                            946.395.150-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JORNAL DI&Aacute;RIO SANTA CRUZ LTDA
+                                        </td>
+                                        <td align="center">
+                                            11.289.518/0001-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            140.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            6360
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JULIANE LUEDKE DE VARGAS
+                                        </td>
+                                        <td align="center">
+                                            019.170.460-14
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JULIANE LUEDKE DE VARGAS
+                                        </td>
+                                        <td align="center">
+                                            019.170.460-14
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUCIANO SCHAEFER
+                                        </td>
+                                        <td align="center">
+                                            900.180.950-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCIANO SCHAEFER
+                                        </td>
+                                        <td align="center">
+                                            900.180.950-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUIZ CARLOS SANTOS LIMA
+                                        </td>
+                                        <td align="center">
+                                            039.159.448-66
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZ CARLOS SANTOS LIMA
+                                        </td>
+                                        <td align="center">
+                                            039.159.448-66
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PAULA RENATA COSTA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            838.170.500-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PAULA RENATA COSTA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            838.170.500-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PAULINE MURADAS BILHAN
+                                        </td>
+                                        <td align="center">
+                                            020.858.380-73
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            150.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PAULINE MURADAS BILHAN
+                                        </td>
+                                        <td align="center">
+                                            020.858.380-73
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PHF SERVI&Ccedil;OS LTDA
+                                        </td>
+                                        <td align="center">
+                                            11.976.724/0001-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por carros de som
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            156
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REFLORESTADORA LINHA BRASIL LTDA
+                                        </td>
+                                        <td align="center">
+                                            00.134.366/0001-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            1400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000001425
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TATIANA DE OLIVEIRA GOMES
+                                        </td>
+                                        <td align="center">
+                                            646.384.300-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            TATIANA DE OLIVEIRA GOMES
+                                        </td>
+                                        <td align="center">
+                                            646.384.300-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TEREZINHA BECKER
+                                        </td>
+                                        <td align="center">
+                                            138.351.490-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens im&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VIVATEC COMUNICA&Ccedil;&Atilde;O VISUAL LTDA
+                                        </td>
+                                        <td align="center">
+                                            18.715.543/0001-50
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            23/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            414.96
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            419
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VIVATEC COMUNICA&Ccedil;&Atilde;O VISUAL LTDA
+                                        </td>
+                                        <td align="center">
+                                            18.715.543/0001-50
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            8015.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            387
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            WANDA DANIELA KONZEN
+                                        </td>
+                                        <td align="center">
+                                            026.061.480-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            WANDA DANIELA KONZEN
+                                        </td>
+                                        <td align="center">
+                                            026.061.480-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            12/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            ROQUE DICK - DEPUTADO ESTADUAL - DEM - RS
+                                        </td>
+                                        <td align="left">
+                                            20.560.570/0001-43
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 39142.380000000005
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

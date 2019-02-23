@@ -1,0 +1,3065 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=BuRQgKuqfwgdXGAgmQq269bx" method="post">
+            <input type="hidden" name="sqCandidato" value="250000000174" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=250000000174&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="36000" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="BENEDITO DE VITTO JUNIOR" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="SP" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PTC" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;360000700000SP2650962&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;04/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALESSANDRA SEVERINO GREGORIO
+                                        </td>
+                                        <td align="center">
+                                            232.482.368-33
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            280.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            3
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ALESSANDRA SEVERINO GREGORIO
+                                        </td>
+                                        <td align="center">
+                                            232.482.368-33
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / ANTONIO BRAZ FERNANDO - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO SANCANARI LTDA
+                                        </td>
+                                        <td align="center">
+                                            10.819.699/0001-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            413.61
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2585
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO SANCANARI LTDA
+                                        </td>
+                                        <td align="center">
+                                            10.819.699/0001-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            3712.88
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2689
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AZEC EDICAO E PUBLICACAO LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            20.300.973/0001-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            54
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            BRUNA REGINA DA COSTA PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            415.231.468-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            280.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            4
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            BRUNA REGINA DA COSTA PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            415.231.468-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            306.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / BRUNO HENRIQUE PETRECA - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CLAONICE DIAS DE ALMEIDA 
+                                        </td>
+                                        <td align="center">
+                                            156.219.708-88
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            893.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            13
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAONICE DIAS DE ALMEIDA 
+                                        </td>
+                                        <td align="center">
+                                            156.219.708-88
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CLAUDIA APARECIDA DE LOURDES LEITE
+                                        </td>
+                                        <td align="center">
+                                            144.435.788-38
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAUDIA APARECIDA DE LOURDES LEITE
+                                        </td>
+                                        <td align="center">
+                                            144.435.788-38
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            333.32
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            9
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DULCELINA PEREIRA DA CRUZ CAMPANA
+                                        </td>
+                                        <td align="center">
+                                            281.809.598-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            439.99
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            8
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DULCELINA PEREIRA DA CRUZ CAMPANA
+                                        </td>
+                                        <td align="center">
+                                            281.809.598-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            133.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            290.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PTC - SP - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            290.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PTC - SP - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDNA POLO BORGES SANTOS
+                                        </td>
+                                        <td align="center">
+                                            327.527.828-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDNA POLO BORGES SANTOS
+                                        </td>
+                                        <td align="center">
+                                            327.527.828-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            880.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            12
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            50.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / ELEI&Ccedil;&Atilde;O 2014 JANIO GON&Ccedil;ALVES DE OLIVEIRA DEPUTADO FEDERAL  - PMDB - SP - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / ELEI&Ccedil;&Atilde;O 2014 JANIO GON&Ccedil;ALVES DE OLIVEIRA DEPUTADO FEDERAL  - PMDB - SP - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FABIO LUIS SCHNEIDERS MARTINS - ME  
+                                        </td>
+                                        <td align="center">
+                                            05.206.250/0001-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            1913.45
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            689
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FABIO RODRIGO PENARIOL 38662486878
+                                        </td>
+                                        <td align="center">
+                                            18.286.100/0001-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            150.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GRAZIELE FERNANDA DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            336.282.758-65
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            293.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            2
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            INGRID APARECIDA CAMARGO
+                                        </td>
+                                        <td align="center">
+                                            090.948.296-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            80.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            INGRID APARECIDA CAMARGO
+                                        </td>
+                                        <td align="center">
+                                            090.948.296-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            906.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JABOTICABAL UNIFORMES PROFISSIONAIS LTDA EPP
+                                        </td>
+                                        <td align="center">
+                                            10.438.761/0001-83
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1049
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JEYNER BATISTA MACRI DIGITACAO E FOTOCOPIA ME
+                                        </td>
+                                        <td align="center">
+                                            07.901.206/0001-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            4500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            258
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JEYNER BATISTA MACRI DIGITACAO E FOTOCOPIA ME
+                                        </td>
+                                        <td align="center">
+                                            07.901.206/0001-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            2054.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            229
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOAO HENRIQUE GREGORIO CARNEIRO
+                                        </td>
+                                        <td align="center">
+                                            218.727.818-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP / JOSE APARECIDO MARTINELLI - NULL - NULL - DEPUTADO ESTADUAL
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSEANE DE LIMA JORGE
+                                        </td>
+                                        <td align="center">
+                                            437.873.298-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            293.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            5
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSEANE DE LIMA JORGE
+                                        </td>
+                                        <td align="center">
+                                            437.873.298-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JULIANA BARCELOS DA ROCHA NOVAES
+                                        </td>
+                                        <td align="center">
+                                            427.484.918-07
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JULIANA BARCELOS DA ROCHA NOVAES
+                                        </td>
+                                        <td align="center">
+                                            427.484.918-07
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            906.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            11
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            KERLLYN MUNIQUE DA CRUZ VIANA
+                                        </td>
+                                        <td align="center">
+                                            436.234.518-35
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            213.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LARISSA GABRIELA CARDOSO APPOLINARIO
+                                        </td>
+                                        <td align="center">
+                                            377.880.528-25
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            880.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            10
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LARISSA GABRIELA CARDOSO APPOLINARIO
+                                        </td>
+                                        <td align="center">
+                                            377.880.528-25
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            386.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LIDIANE PEREIRA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            404.232.938-18
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            866.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARCOS ANTONIO FERREIRA - JORNAL - ME
+                                        </td>
+                                        <td align="center">
+                                            09.647.098/0001-48
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            350.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            21
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA APARECIDA DIAS ALMEIDA
+                                        </td>
+                                        <td align="center">
+                                            200.561.188-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA APARECIDA DIAS ALMEIDA
+                                        </td>
+                                        <td align="center">
+                                            200.561.188-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            893.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            14
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA DE LOURDES BRANDEL ME
+                                        </td>
+                                        <td align="center">
+                                            02.823.850/0001-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            1290.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5495
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA DE LOURDES BRANDEL ME
+                                        </td>
+                                        <td align="center">
+                                            02.823.850/0001-15
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3681.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5437
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ONOFRE BATISTA PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            026.331.038-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            433.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            7
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ONOFRE BATISTA PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            026.331.038-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            433.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            6
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PATRICIA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            318.652.558-66
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            906.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            17
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PATRICIA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            318.652.558-66
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PATRICIA DE LIMA XAVIER
+                                        </td>
+                                        <td align="center">
+                                            348.955.328-44
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            893.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            18
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PATRICIA DE LIMA XAVIER
+                                        </td>
+                                        <td align="center">
+                                            348.955.328-44
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            160.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PRISCILA APARECIDA CRUZ DE LIMA
+                                        </td>
+                                        <td align="center">
+                                            381.134.858-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            880.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            16
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PRISCILA APARECIDA CRUZ DE LIMA
+                                        </td>
+                                        <td align="center">
+                                            381.134.858-21
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            173.34
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PRISCILA ROBERTA BARBOSA MANFREDO
+                                        </td>
+                                        <td align="center">
+                                            336.172.768-57
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            213.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            PRISCILA ROBERTA BARBOSA MANFREDO
+                                        </td>
+                                        <td align="center">
+                                            336.172.768-57
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            320.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            QUEZIANEI GOMES DE BARROS
+                                        </td>
+                                        <td align="center">
+                                            354.239.708-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            133.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            QUEZIANEI GOMES DE BARROS
+                                        </td>
+                                        <td align="center">
+                                            354.239.708-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            906.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            15
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAFAEL LEMOS VALVERDE 40006153860
+                                        </td>
+                                        <td align="center">
+                                            15.443.025/0001-37
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Produ&ccedil;&atilde;o de jingles, vinhetas e slogans
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            38
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RICARDO APARECIDO GEMA
+                                        </td>
+                                        <td align="center">
+                                            11.029.020/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por carros de som
+                                        </td>
+                                        <td align="right">
+                                            440.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SILVANA CRISTINA LEITE
+                                        </td>
+                                        <td align="center">
+                                            377.034.758-74
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            213.32
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            TAIANE IZILDA BARBOSA MANFREDO
+                                        </td>
+                                        <td align="center">
+                                            445.857.858-84
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            173.33
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TELEFONICA BRASIL S.A.
+                                        </td>
+                                        <td align="center">
+                                            02.558.157/0001-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Telefone
+                                        </td>
+                                        <td align="right">
+                                            372.31
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            09670536680
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            TELEFONICA BRASIL S.A.
+                                        </td>
+                                        <td align="center">
+                                            02.558.157/0001-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Telefone
+                                        </td>
+                                        <td align="right">
+                                            29.08
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            09670674803
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TELEFONICA BRASIL S.A.
+                                        </td>
+                                        <td align="center">
+                                            02.558.157/0001-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Telefone
+                                        </td>
+                                        <td align="right">
+                                            95.69
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            09670536508
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            VERA LUCIA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            149.556.588-22
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            799.99
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            20
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            VIA IMPRESSA ASSESSORIA E COMUNICACAO LTDA ME
+                                        </td>
+                                        <td align="center">
+                                            15.449.633/0001-59
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            49
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            64.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            BENEDITO DE VITTO JUNIOR - DEPUTADO ESTADUAL - PTC - SP
+                                        </td>
+                                        <td align="left">
+                                            20.557.693/0001-25
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 41321.68000000001
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

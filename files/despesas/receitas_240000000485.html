@@ -1,0 +1,2368 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=MgkUSnEnzTUBLCmWU6jd1-Gz" method="post">
+            <input type="hidden" name="sqCandidato" value="240000000485" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=240000000485&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="3636" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="LUCY SANTOS PINTO" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="SC" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PTC" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;036360600000SC5210588&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;04/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANDERSON
+                                        </td>
+                                        <td align="center">
+                                            289.086.080-09
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            1400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            4
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO DIPLOMATA  II LTDA
+                                        </td>
+                                        <td align="center">
+                                            02.614.263/0001-16
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            625220
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO SANTA CRUZ
+                                        </td>
+                                        <td align="center">
+                                            08.232.183/0001-74
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            149.22
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            856955
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO SANTA CRUZ
+                                        </td>
+                                        <td align="center">
+                                            03.323.183/0001-74
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            148.55
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            649170
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CARLA DANIELI BARBOSA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            038.444.629-96
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            2
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CHURRASCARIA VENTURIN
+                                        </td>
+                                        <td align="center">
+                                            00.904.978/0001-88
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            20.93
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            18344
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CHURRASCARIA VENTURIN
+                                        </td>
+                                        <td align="center">
+                                            00.904.978/0001-88
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            17/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            17.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            18450
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            31/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            671.05
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PSB - SC - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ECT AGENCIA DE CORREIOS E TELEGRAFOS
+                                        </td>
+                                        <td align="center">
+                                            73.628.521/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            8.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ECT AGENCIA DE CORREIOS E TELEGRAFOS
+                                        </td>
+                                        <td align="center">
+                                            73.628.521/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            17.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELIAS AMON PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            952.213.799-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            5000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EMILIO LOHMANN
+                                        </td>
+                                        <td align="center">
+                                            008.966.609-74
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/06/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            677118
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            IRMAOS AMPESSAN E CIA LTDA
+                                        </td>
+                                        <td align="center">
+                                            84.940.147/0001-51
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            162.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            603127
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANA OLIVEIRA SOARES
+                                        </td>
+                                        <td align="center">
+                                            000.000.000-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JULIANA MARIA VIEIRA HOPPE ME
+                                        </td>
+                                        <td align="center">
+                                            17.137.742/0001-66
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            25.12
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1822772
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            02.058.336/0001-56
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            25.13
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11916
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            00.490.700/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            16.25
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11923
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            00.490.700/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            11.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11899
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            00.490.700/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11924
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            00.490.700/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            100.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11902
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUCIANO JOSE FADEL EPP
+                                        </td>
+                                        <td align="center">
+                                            00.490.700/0001-01
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            15.31
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            11915
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUDMILA LOPEZ FEHRLEN
+                                        </td>
+                                        <td align="center">
+                                            074.961.679-24
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cess&atilde;o ou loca&ccedil;&atilde;o de ve&iacute;culos
+                                        </td>
+                                        <td align="right">
+                                            4750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MAURICIO DE FREITAS
+                                        </td>
+                                        <td align="center">
+                                            037.276.049-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            1
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NADIR COMERCIO DE COMBUSTIVEIS LTDA
+                                        </td>
+                                        <td align="center">
+                                            03.508.374/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            54.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            922945
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            8000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC / NAYARA S. PINTO PAUPEIRO - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            POSTO ANGELONI
+                                        </td>
+                                        <td align="center">
+                                            83.646.984/0040-16
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            50.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            185099
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            POSTO ANGELONI
+                                        </td>
+                                        <td align="center">
+                                            83.646.984/0040-16
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            129.1
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            168238
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            POSTO BEIRAMAR
+                                        </td>
+                                        <td align="center">
+                                            00.108.775/0001-85
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            144.2
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            480227
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            POSTO MAURO RAMOS
+                                        </td>
+                                        <td align="center">
+                                            10.517.939/0001-81
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            100.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            685284
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            POSTO QUALITY
+                                        </td>
+                                        <td align="center">
+                                            08.940.015/0002-22
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            13.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            246677
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            POSTO QUALITY
+                                        </td>
+                                        <td align="center">
+                                            08.940.015/0002-22
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            123.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            729773
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RAINHA DO PAO DE QUEIJO
+                                        </td>
+                                        <td align="center">
+                                            07.508.469/0001-85
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            16.66
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            4467
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RESTAURANTE BOM GOSTO
+                                        </td>
+                                        <td align="center">
+                                            12.029.136/0001-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            13/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            27.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Cupom Fiscal
+                                        </td>
+                                        <td align="center">
+                                            37356
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RESTAURANTE CANTO DA LAGOINHA
+                                        </td>
+                                        <td align="center">
+                                            02.813.602/0001-95
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            40.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            4266
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            REUNIDAS TRASNPORTE
+                                        </td>
+                                        <td align="center">
+                                            83.083.428/0001-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            24.01
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1090403
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REUNIDAS TRASNPORTE
+                                        </td>
+                                        <td align="center">
+                                            83.083.428/0001-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            27.03
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1087887
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            REUNIDAS TRASNPORTE
+                                        </td>
+                                        <td align="center">
+                                            83.083.428/0001-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            21.03
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1087913
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REUNIDAS TRASNPORTE
+                                        </td>
+                                        <td align="center">
+                                            83.083.428/0001-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            28.04
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            10957659
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            REUNIDAS TRASNPORTE
+                                        </td>
+                                        <td align="center">
+                                            83.083.428/0001-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            52.24
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            1044021
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SERAGRAPHICS SERVI&Ccedil;OS GRAFICOS LTDA
+                                        </td>
+                                        <td align="center">
+                                            07.219.446/0001-50
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1464
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SET FOTOGRAFIAS
+                                        </td>
+                                        <td align="center">
+                                            17.692.862/0001-25
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            30.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            10
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            THIAGO MAUTONNE
+                                        </td>
+                                        <td align="center">
+                                            070.967.159-83
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            5
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TREM DE MINAS RESTAURANTE
+                                        </td>
+                                        <td align="center">
+                                            17.689.208/0001-62
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            40.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            274
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            4.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            4.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            4.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            4.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            10/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            4.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            7.8
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUCY SANTOS PINTO - DEPUTADO FEDERAL - PTC - SC
+                                        </td>
+                                        <td align="left">
+                                            20.582.360/0001-56
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 35059.869999999995
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

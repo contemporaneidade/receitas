@@ -1,0 +1,3229 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=i+R1SuGfY6LhOz9tOt-mL264" method="post">
+            <input type="hidden" name="sqCandidato" value="10000000620" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=10000000620&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="1111" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="LEILANE RIBEIRO DE OLIVEIRA" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="AC" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PP" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;011110600000AC1514116&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;05/02/2015
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            A CRUZEIRENSE
+                                        </td>
+                                        <td align="center">
+                                            02.425.483/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/07/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            3340.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            19350
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AEROBRAN DISTRIBUIDORA IMPORT E EXPORT
+                                        </td>
+                                        <td align="center">
+                                            14.411.631/0001-08
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1512.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1734
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALCEMILA DA SILVA OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            017.844.842-70
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            670.74
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANA PAULA BRAZ DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            008.818.342-46
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            386.62
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ANDERSON COSTA SARAIVA
+                                        </td>
+                                        <td align="center">
+                                            004.423.912-26
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            460.73
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO AMAZONIA
+                                        </td>
+                                        <td align="center">
+                                            05.793.177/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            5250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5637
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO AMAZONIA
+                                        </td>
+                                        <td align="center">
+                                            05.793.177/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5649
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AUTO POSTO AMAZONIA
+                                        </td>
+                                        <td align="center">
+                                            05.793.177/0001-06
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Combust&iacute;veis e lubrificantes
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            5649
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            BRUNO FERNANDES DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            015.235.942-76
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            BRUNO FERNANDES DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            015.235.942-76
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            697.08
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLINTON RUAN FERREIRA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            024.709.802-75
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            683.93
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DAIANE BARBOSA DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            024.731.732-22
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DELIZ GOMES DE  AZEVEDO
+                                        </td>
+                                        <td align="center">
+                                            801.841.542-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            644.36
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            3
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DERLILSON DE OLIVEIRA SILVA
+                                        </td>
+                                        <td align="center">
+                                            026.156.782-99
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PP - AC - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1308.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC / DIRE&Ccedil;&Atilde;O ESTADUAL/DISTRITAL - PP - AC - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELTON OLIVEIRA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            036.046.542-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EMERSON VASCONCELOS PINTO
+                                        </td>
+                                        <td align="center">
+                                            791.988.132-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            758.67
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FRANCISCA APARECEIDA OLIVEIRA DO NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            994.378.212-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FRANCISCO BRITO DO NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            066.640.672-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FRANCISCO HOLANDA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            640.314.972-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            732.29
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FRANCISCO MAICON DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            982.871.682-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            697.12
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FRANCISCO UILIAMI SILVA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            042.420.212-32
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            598.52
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GABRIEL VASCONCELOS NEGREIROS
+                                        </td>
+                                        <td align="center">
+                                            037.903.222-88
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            644.36
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GRAFICA E JORNAL JURU&Aacute;
+                                        </td>
+                                        <td align="center">
+                                            09.309.458/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3840.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0734
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GRAFICA E JORNAL JURU&Aacute;
+                                        </td>
+                                        <td align="center">
+                                            09.309.458/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0735
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            IDAIANES FRAN&Ccedil;A LIMA
+                                        </td>
+                                        <td align="center">
+                                            972.700.672-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            IVAN MIRANDA DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            516.050.582-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            3500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            J M SARAH 
+                                        </td>
+                                        <td align="center">
+                                            00.871.711/0001-31
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            257.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANIO FONSECA ROSAS
+                                        </td>
+                                        <td align="center">
+                                            029.317.572-17
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            714.71
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JESSICA CARLOS DA COSTA OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            553.866.362-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            434.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOICE NUNES DE AZEVEDO
+                                        </td>
+                                        <td align="center">
+                                            009.321.842-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            21
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE ALDEMOR VIEIRA DA SILVA JUNIOR
+                                        </td>
+                                        <td align="center">
+                                            021.765.672-26
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            556.84
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            4
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE CLEMILTON DE LIMA
+                                        </td>
+                                        <td align="center">
+                                            011.745.962-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE DA SILVA MARTINS
+                                        </td>
+                                        <td align="center">
+                                            641.387.392-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Diversas a especificar
+                                        </td>
+                                        <td align="right">
+                                            3500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE DA SILVA MONTEIRO
+                                        </td>
+                                        <td align="center">
+                                            863.105.502-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            655.09
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOSE MARURICIO DE SOUZA FREITAS
+                                        </td>
+                                        <td align="center">
+                                            645.695.512-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            556.84
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            3
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOSE MOURA DE QUEIROZ
+                                        </td>
+                                        <td align="center">
+                                            433.986.262-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LANA CARLI  DA SILVA LIMA
+                                        </td>
+                                        <td align="center">
+                                            947.974.712-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            27/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            929.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARCELO FRAN&Ccedil;A LIMA
+                                        </td>
+                                        <td align="center">
+                                            182.676.293-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA DILENE DA SILVA COSTA
+                                        </td>
+                                        <td align="center">
+                                            616.455.082-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA JOSE LIMA DO NASCIMENTO
+                                        </td>
+                                        <td align="center">
+                                            788.533.892-49
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA LUIZA DE MELO FRAN&Ccedil;A
+                                        </td>
+                                        <td align="center">
+                                            217.032.302-30
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA MADALENA SILVA MOURA
+                                        </td>
+                                        <td align="center">
+                                            028.992.192-94
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            694.92
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA SANDRA DOS SANTOS GOMES
+                                        </td>
+                                        <td align="center">
+                                            881.452.202-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            714.71
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARLA ALVES DE LIMA
+                                        </td>
+                                        <td align="center">
+                                            948.463.912-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MEIRILANDIA NUNES AZEVEDO
+                                        </td>
+                                        <td align="center">
+                                            024.731.652-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            705.91
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NATANIEL SILVA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            059.943.560-77
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            670.73
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            NIRLAN AUGUSTO DE SOUZA SILVA
+                                        </td>
+                                        <td align="center">
+                                            529.688.982-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            724.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NURIA SALES DE MELO
+                                        </td>
+                                        <td align="center">
+                                            435.049.902-44
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens im&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            6000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            OLEMIR FERREIRA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            461.708.982-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            782.22
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RAFAEL DA SILVA PEREIRA
+                                        </td>
+                                        <td align="center">
+                                            034.893.332-09
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAFAEL SANTIAGO FERREIRA
+                                        </td>
+                                        <td align="center">
+                                            005.693.822-54
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            622.52
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RAFAEL SANTIAGO FERREIRA
+                                        </td>
+                                        <td align="center">
+                                            005.693.822-54
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            08/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAFAELA SILVA DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            032.023.962-42
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            661.95
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            REMERSON DA SILVA SOBRAL
+                                        </td>
+                                        <td align="center">
+                                            857.288.612-53
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            714.71
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RODRIGO PEREIRA DA COSTA
+                                        </td>
+                                        <td align="center">
+                                            019.425.172-11
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            297.31
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            THAINAN MESQUITA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            034.594.812-26
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            666.34
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            THALISSA CRISTINA RAMALHO MESQUITA
+                                        </td>
+                                        <td align="center">
+                                            027.422.372-40
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            644.36
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            UILIAN RICHARD SILVA OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            021.376.932-83
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ZAQUEILA BRAZ DE SOUZA
+                                        </td>
+                                        <td align="center">
+                                            010.867.042-23
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Atividades de milit&acirc;ncia e mobiliza&ccedil;&atilde;o de rua
+                                        </td>
+                                        <td align="right">
+                                            583.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            SN
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            46.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            23.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            14/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            0.35
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            18.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            39.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            21.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            12/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            61.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LEILANE RIBEIRO DE OLIVEIRA - DEPUTADO FEDERAL - PP - AC
+                                        </td>
+                                        <td align="left">
+                                            20.579.743/0001-75
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 78021.6
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

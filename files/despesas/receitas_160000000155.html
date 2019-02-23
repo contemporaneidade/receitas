@@ -1,0 +1,3475 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqDespesasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqDespesasCandidato" name="FrmPesqDespesasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoDespesasByCandidato.action;jsessionid=HA-lH-B0Di+-tMliCFbCi0KK" method="post">
+            <input type="hidden" name="sqCandidato" value="160000000155" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><span class="textoNegrito">Comitê Financeiro/Direção Partidária</span>
+                                                </td>
+                                            </tr>
+                                        </table>				
+                                    </td>
+                                </tr>
+                            	
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoReceitasByCandidato.action?sqCandidato=160000000155&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong>Tipo de Presta&ccedil;&atilde;o de Contas</strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqDespesasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqDespesasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqDespesasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqDespesasCandidato_tipoEntrega0">Final</label>
+
+                                                        </fieldset>
+                                                    </td>
+                                                </tr>
+                                            </table>								
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Candidato</strong> 
+                                            </legend>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>										
+                                                <tr class="textoNegrito">
+                                                    <td width="30%">N&uacute;mero: </td>
+                                                    <td><input type="text" name="nrCandidato" size="6" value="4500" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Nome:</td>
+                                                    <td><input type="text" name="nmCandidato" size="30" value="LUIZ FELIPE GUBERT BRAGA CORTES" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>UF:</td>
+                                                    <td><input type="text" name="sgUfMunicipio" size="30" value="PR" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr class="textoNegrito">
+                                                    <td>Partido:</td>
+                                                    <td><input type="text" name="sgPartido" size="10" value="PSDB" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>									
+                                                <tr>
+                                                    <td colspan="2" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center"> 
+                                                        <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                        <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                    </td>
+                                                </tr>
+                                            </table>							
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong>Filtro por Fornecedor</strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeFornecedor" size="30" value="" readonly="readonly" id="idNomeFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjFornecedor" size="20" value="" readonly="readonly" id="idCpfCnpjFornecedor" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Forma de pagamento</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqDespesasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="8">Débito em conta</option>
+    <option value="2">Estimado</option>
+    <option value="9">Não informado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocFornecedor" value="Selecionar Fornecedor" onclick="abrir('pesquisaFornecedor.jsp', '800', '600', 'popupLocFornecDespCand')">&nbsp;
+                                                                                <input type="button" name="btnclearFornecedor" value="Limpar" onclick="limparDadosFornecedor();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>			
+                                		
+                                		
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoDespesasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaDespesaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;045000600000PR4197543&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;12/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            
+                            
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fornecedor 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Tipo Despesa
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor (R$)
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Benefici&aacute;rio/Contratante
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nº Documento
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADILSON DA COSTA MOREIRA
+                                        </td>
+                                        <td align="center">
+                                            12.698.306/0001-42
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            18/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0189
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            AGF FANNY
+                                        </td>
+                                        <td align="center">
+                                            72.355.613/0001-52
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Correspond&ecirc;ncias e despesas postais
+                                        </td>
+                                        <td align="right">
+                                            43175.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            59441851
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALEXANDRE DARTAGNAN FERES
+                                        </td>
+                                        <td align="center">
+                                            04.025.931/0001-03
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Loca&ccedil;&atilde;o/cess&atilde;o de bens m&oacute;veis
+                                        </td>
+                                        <td align="right">
+                                            2500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1089
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANTONIO VIEIRA
+                                        </td>
+                                        <td align="center">
+                                            240.715.369-34
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01801
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CAMILA GRUBER
+                                        </td>
+                                        <td align="center">
+                                            078.257.709-19
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00202
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CELINA SUSY PIRES RIBELLO
+                                        </td>
+                                        <td align="center">
+                                            07.478.063/0001-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            2000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            48
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CLAUDIO FRANCISCO NABOSNE
+                                        </td>
+                                        <td align="center">
+                                            857.342.849-04
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01901
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DOHMS WEB LTDA
+                                        </td>
+                                        <td align="center">
+                                            10.687.894/0001-93
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por telemarketing
+                                        </td>
+                                        <td align="right">
+                                            120.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1278
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            DOHMS WEB LTDA
+                                        </td>
+                                        <td align="center">
+                                            10.687.894/0001-93
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por telemarketing
+                                        </td>
+                                        <td align="right">
+                                            200.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1243
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDI GALDINO DE BRITO CASTILHO
+                                        </td>
+                                        <td align="center">
+                                            282.664.049-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00101
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDITORA ECO CENTRAL LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            11.776.180/0001-14
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            93
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDITORA GAZETA DO POVO SA
+                                        </td>
+                                        <td align="center">
+                                            76.530.047/0001-29
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            15088.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            215952014
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDITORA JORNAL DO ONIBUS LTDA - EPP
+                                        </td>
+                                        <td align="center">
+                                            11.255.258/0001-55
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2086
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDITORA JORNAL DO ONIBUS LTDA - EPP
+                                        </td>
+                                        <td align="center">
+                                            11.255.258/0001-55
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2056
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDITORA O CORREIO PARANAENSE LTDA - EPP
+                                        </td>
+                                        <td align="center">
+                                            00.064.742/0001-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            560.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2226
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            EDITORA O CORREIO PARANAENSE LTDA - EPP
+                                        </td>
+                                        <td align="center">
+                                            00.064.742/0001-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            560.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            2258
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            EDITORA O ESTADO DO PARANA S.A.
+                                        </td>
+                                        <td align="center">
+                                            76.568.708/0001-05
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            1092.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Recibo
+                                        </td>
+                                        <td align="center">
+                                            0021352001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            13600.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / EDITORA TRIBUNA DO NORTE S/A - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            3250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEICAO 2014 ALVARO FERNANDES DIAS SENADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            09/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEICAO 2014 ALVARO FERNANDES DIAS SENADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            250.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEI&Ccedil;&Otilde;ES 2014 CARLOS ALBERTO RICHA GOVERNADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEI&Ccedil;&Otilde;ES 2014 CARLOS ALBERTO RICHA GOVERNADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            25/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            606.64
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEI&Ccedil;&Otilde;ES 2014 CARLOS ALBERTO RICHA GOVERNADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            11700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEI&Ccedil;&Otilde;ES 2014 CARLOS ALBERTO RICHA GOVERNADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            19/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            1550.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / ELEI&Ccedil;&Otilde;ES 2014 CARLOS ALBERTO RICHA GOVERNADOR - PSDB - PR - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FAVRETTO COMUNICACAO VISUAL LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            08.803.929/0001-60
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            2442.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1210
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FAVRETTO COMUNICACAO VISUAL LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            08.803.929/0001-60
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            11049.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1225
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FAVRETTO COMUNICACAO VISUAL LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            08.803.929/0001-60
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            28069.3
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1277
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GABRIELA MAINARDES
+                                        </td>
+                                        <td align="center">
+                                            989.706.079-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00502
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GENI CINELLI
+                                        </td>
+                                        <td align="center">
+                                            514.454.769-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00501
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GIOVANE BARBOSA
+                                        </td>
+                                        <td align="center">
+                                            480.458.889-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1150.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00702
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GIOVANI CHARLES ROSSETIM
+                                        </td>
+                                        <td align="center">
+                                            038.596.429-36
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01701
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            GREEN MARKETING DIGITAL EIRELI - ME
+                                        </td>
+                                        <td align="center">
+                                            03.392.877/0001-63
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            6500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1565
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GREEN MARKETING DIGITAL EIRELI - ME
+                                        </td>
+                                        <td align="center">
+                                            03.392.877/0001-63
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Servi&ccedil;os prestados por terceiros
+                                        </td>
+                                        <td align="right">
+                                            7500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            1548
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            INDUSTRIA GRAFICA E EDITORA B.G.L. LTDA
+                                        </td>
+                                        <td align="center">
+                                            10.355.842/0001-10
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            6229.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            3036
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JANETE DOS SANTOS REIS FOGA&Ccedil;A
+                                        </td>
+                                        <td align="center">
+                                            613.831.129-91
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00801
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JAQUELINE DE OLIVEIRA
+                                        </td>
+                                        <td align="center">
+                                            095.969.919-81
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02401
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JESSICA VIEIRA FUSTINONE
+                                        </td>
+                                        <td align="center">
+                                            081.109.919-98
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00102
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOAO OSMAR PECINI
+                                        </td>
+                                        <td align="center">
+                                            407.720.809-25
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JORAMIR DE FATIMO BUENO
+                                        </td>
+                                        <td align="center">
+                                            394.178.919-87
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01601
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JORNAL ATOS E FOTOS LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            08.285.252/0001-16
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            800.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            532
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOS&Eacute; ANTONIO DE CASTILHO
+                                        </td>
+                                        <td align="center">
+                                            890.722.358-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00401
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOZIANE DOS SANTOS CLAUDINO
+                                        </td>
+                                        <td align="center">
+                                            079.376.929-95
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02501
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JULIO CESA SILVEIRA
+                                        </td>
+                                        <td align="center">
+                                            530.355.859-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02201
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            KEOPS INDUSTRIA GRAFICA S/A
+                                        </td>
+                                        <td align="center">
+                                            01.674.524/0001-20
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            9780.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            619
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUCIANE SHIMADA ME
+                                        </td>
+                                        <td align="center">
+                                            12.902.658/0001-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            137
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUCIANE SHIMADA ME
+                                        </td>
+                                        <td align="center">
+                                            12.902.658/0001-78
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            138
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZ GONZAGA ANDRAUS CYPRIANO DE MATTOS
+                                        </td>
+                                        <td align="center">
+                                            11.104.802/0001-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0153
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LUIZ GONZAGA ANDRAUS CYPRIANO DE MATTOS
+                                        </td>
+                                        <td align="center">
+                                            11.104.802/0001-68
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            20/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            1500.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            0148
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            LUIZA EMANUELE ORIGE DE OLIVEIRA PETERS
+                                        </td>
+                                        <td align="center">
+                                            059.057.009-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00701
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MANOEL BRITO DA SLVA
+                                        </td>
+                                        <td align="center">
+                                            042.154.128-89
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00601
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIL&Uacute; DO ROCIO DE FREITAS
+                                        </td>
+                                        <td align="center">
+                                            404.252.909-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00301
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MEHL EMPREENDIMENTOS HOTELEIROS
+                                        </td>
+                                        <td align="center">
+                                            77.502.581/0001-94
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            4050.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            000000088
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MEHL EMPREENDIMENTOS HOTELEIROS
+                                        </td>
+                                        <td align="center">
+                                            77.502.581/0001-94
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            22/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Alimenta&ccedil;&atilde;o
+                                        </td>
+                                        <td align="right">
+                                            4725.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            00000089
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MERIELE DURANTE DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            033.730.929-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00302
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MESCLA EDITORA LTDA
+                                        </td>
+                                        <td align="center">
+                                            00.791.171/0001-86
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            3000.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            504
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            METRO JORNAL S.A
+                                        </td>
+                                        <td align="center">
+                                            07.780.914/0001-61
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por jornais e revistas
+                                        </td>
+                                        <td align="right">
+                                            4998.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Outro
+                                        </td>
+                                        <td align="center">
+                                            056283
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NAILSE BARBOSA DOS SANTOS
+                                        </td>
+                                        <td align="center">
+                                            051.198.489-82
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            00201
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            NILTON CESAR DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            819.414.559-72
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            02101
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            POWERSERVICE INFORMATICA LTDA
+                                        </td>
+                                        <td align="center">
+                                            04.576.089/0001-90
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            21/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Cria&ccedil;&atilde;o e inclus&atilde;o de p&aacute;ginas na internet
+                                        </td>
+                                        <td align="right">
+                                            4900.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            399
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            26/08/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / RENTAUTO LOCADORA DE VE&Iacute;CULOS S/A - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROSANGELA DA SILVA
+                                        </td>
+                                        <td align="center">
+                                            692.232.389-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Despesas com pessoal
+                                        </td>
+                                        <td align="right">
+                                            1700.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            RPA - Recibo de Pagamento Aut&ocirc;nomo
+                                        </td>
+                                        <td align="center">
+                                            01001
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            S A B MANZONI SERVIOS GRAFICOS
+                                        </td>
+                                        <td align="center">
+                                            84.941.012/0001-00
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            01/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            9050.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            4772
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            400.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / SERZEGRAF INDUSTRIA EDITORA GRAFICA LTDA - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            11/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Baixa de recursos estim&aacute;veis em dinheiro
+                                        </td>
+                                        <td align="right">
+                                            300.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR / SERZEGRAF INDUSTRIA EDITORA GRAFICA LTDA - NULL - NULL - DEPUTADO FEDERAL
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SUPER DESIGN DIGITAL - EIRELI
+                                        </td>
+                                        <td align="center">
+                                            15.423.821/0001-08
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por placas, estandartes e faixas
+                                        </td>
+                                        <td align="right">
+                                            3512.5
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            131
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TMJ PUBLICIDADES E EVENTOS LTDA - ME
+                                        </td>
+                                        <td align="center">
+                                            09.377.949/0001-80
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            29/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            240.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            457
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            WP EDITORA GRAFICA LTDA
+                                        </td>
+                                        <td align="center">
+                                            02.645.222/0001-97
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Publicidade por materiais impressos
+                                        </td>
+                                        <td align="right">
+                                            29750.0
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            Nota Fiscal
+                                        </td>
+                                        <td align="center">
+                                            3381
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            20.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            07/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            20.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            03/11/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            13.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            05/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            20.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            16/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            13.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            02/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            13.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            04/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            20.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            30/09/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            13.6
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            15/10/2014
+                                        </td>
+                                        <td align="left">
+                                            Encargos financeiros, taxas banc&aacute;rias e/ou op. cart&atilde;o de cr&eacute;dito
+                                        </td>
+                                        <td align="right">
+                                            20.4
+                                            
+                                        </td>
+                                        <td align="left">
+                                            LUIZ FELIPE GUBERT BRAGA CORTES - DEPUTADO FEDERAL - PSDB - PR
+                                        </td>
+                                        <td align="left">
+                                            20.572.404/0001-67
+                                        </td>
+                                        <td align="left">
+                                            
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Despesas: R$ 284754.84
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <script type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosFornecedor(){
+            document.getElementById('idNomeFornecedor').value = '';
+            document.getElementById('idCpfCnpjFornecedor').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </script>
+</html>

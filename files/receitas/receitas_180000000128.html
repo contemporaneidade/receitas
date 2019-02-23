@@ -1,0 +1,3082 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SPCE 2014 - Consulta Financiamento Eleitoral e Gastos de Campanha - v.: 1.6.7</title>
+    <link href="css/padraoTSE-01.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" language="javascript" src="js/util.js"></script>
+</head>
+    <body background="imagens/fundoPagina-01.gif">
+        <script type="text/javascript">
+            function submitAction(actionName) {
+                var form = document.getElementById("idFrmPesqReceitasCandidato");
+                form.action = actionName + ".action";
+                form.submit();
+            }
+        </script>
+        <form id="idFrmPesqReceitasCandidato" name="FrmPesqReceitasCandidato" action="/spceweb.consulta.receitasdespesas2014/resumoReceitasByCandidato.action;jsessionid=JJ-7W1aGXK1SQanXJXsEFBYC" method="post">
+            <input type="hidden" name="sqCandidato" value="180000000128" id="idSqCandidato"/>
+            <input type="hidden" name="sgUe" value="" id="idSgUe"/>
+            
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="74px;" class="header">
+    <tr>
+        <td align="left" width="10%"><img src="./imagens/logotipos/SPCE.jpg" border="0"></td>
+        <td align="center" width="80%"><label class="tituloCabecalho2">ELEIÇÕES 2014</label> </td>
+        <td align="right" width="10%"><img src="./imagens/logotipos/urna.jpg" border="0"></td>
+    </tr>
+</table>
+             
+            <table border="0" id="subheader" width="100%">
+                
+                    <tr>
+                        <td>
+                            <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+    <tr>
+        <td class="clsCabecalho04 textoNegrito" align="center">
+            Consulta aos Doadores e Fornecedores de Campanha de Candidatos - v.: 1.6.7
+        </td>
+    </tr>
+</table>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        <table width="100%" border="0">
+                            
+                                <tr>
+                                    <td valign="top" align="center" colspan="2">
+                                        <table border="0" id="subheader" width="100%">
+                                            <tr>
+                                                <td align="left"> 
+                                                    <input type="radio" name="rb1" checked="checked"><SPAN class="textoNegrito">Candidato</SPAN>
+                                                    <input type="radio" name="rb1" onclick="window.location.replace('abrirTelaReceitaComite.action')"><SPAN class="textoNegrito">Comitê Financeiro/Direção Partidária</SPAN>
+                                                </td>
+                                            </tr>
+                                        </table>						
+                                    </td>
+                                </tr>
+                            
+                            <tr>
+                                
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Tipo </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td align="left"> 
+                                                        <input type="radio" name="rbTipo" checked="checked"><SPAN class="textoNegrito">Receitas</SPAN>
+                                                        <input type="radio" name="rbTipo" onclick="window.location.replace('resumoDespesasByCandidato.action?sqCandidato=180000000128&sgUe=&sgUfMunicipio=&filtro=S&tipoEntrega=0')"><SPAN class="textoNegrito">Despesas</SPAN>
+                                                        <!--<input type="radio" name="entregaram" onclick="window.location.replace('abrirTelaPesquisaCandidatoNaoPrestaramConta.action')"><span class="textoNegrito">Sem Entrega</span>-->
+                                                        <br><br><br><br>
+                                                        <fieldset style="width:220px">
+                                                            <legend>
+                                                                <strong> Tipo de Presta&ccedil;&atilde;o de Contas </strong>
+                                                            </legend>
+                                                            <input type="radio" name="tipoEntrega" id="idFrmPesqReceitasCandidato_tipoEntrega1" value="1"/><label for="idFrmPesqReceitasCandidato_tipoEntrega1">1ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqReceitasCandidato_tipoEntrega2" value="2"/><label for="idFrmPesqReceitasCandidato_tipoEntrega2">2ª Parcial</label>
+<input type="radio" name="tipoEntrega" id="idFrmPesqReceitasCandidato_tipoEntrega0" checked="checked" value="0"/><label for="idFrmPesqReceitasCandidato_tipoEntrega0">Final</label>
+
+                                                            </fieldset>	                                                        
+                                                        </td>
+                                                    </tr>
+                                                </table>								
+                                            </fieldset>
+                                        </td>
+                                        <td>
+                                            <fieldset  style="height:180px"> 
+                                                <legend> 
+                                                    <strong>Filtro por Candidato</strong> 
+                                                </legend>
+                                                
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                                                    <tr>
+                                                        <td colspan="2">&nbsp;</td>
+                                                    </tr>										
+                                                    <tr class="textoNegrito">
+                                                        <td width="30%">N&uacute;mero:</td>
+                                                        
+                                                        <td>
+                                                            <input type="text" name="nrCandidato" size="6" value="40400" readonly="readonly" id="idNrCandidato" class="clsCabecalhoCol00"/>                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textoNegrito">
+                                                        <td>Nome:</td>
+
+                                                        <td>
+                                                            <input type="text" name="nmCandidato" size="30" value="MARCELO COSTA NAPOLEAO DO REGO" readonly="readonly" id="idNmCandidato" class="clsCabecalhoCol00"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textoNegrito">
+                                                        <td>UF:</td>
+
+                                                        <td>
+                                                            <input type="text" name="sgUfMunicipio" size="30" value="PI" readonly="readonly" id="idSgUfMunicipio" class="clsCabecalhoCol00"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textoNegrito">
+                                                        <td>Partido:</td>
+
+                                                        <td>
+                                                            <input type="text" name="sgPartido" size="10" value="PSB" readonly="readonly" id="idSgPartido" class="clsCabecalhoCol00"/>
+                                                        </td>
+                                                    </tr>									
+                                                    <tr>
+                                                        <td colspan="2" align="center">&nbsp;</td>
+                                                    </tr>									
+                                                    <tr>
+                                                        <td colspan="2" align="center">&nbsp;</td>
+                                                    </tr>																	
+                                                    <tr>
+                                                        <td colspan="2" align="center"> 
+                                                            <input type="button" name="btnLocCand" value="Selecionar Candidato" onclick="abrir('abrirTelaPesquisaCandidatos.action', '800', '600', 'popupLocCand')">&nbsp;
+                                                            <input type="button" name="btnclearCand" value="Limpar" onclick="limparDadosCandidato();">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset  style="height:180px"> 
+                                            <legend> 
+                                                <strong> Filtro por Doador </strong> 
+                                            </legend>
+                                            <table border="0" id="subheader" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <th scope="col" align="left" valign="top">
+                                                                    <table cellpadding="1" cellspacing="1" border="0" width="100%" align="center">
+                                                                        <tr>
+                                                                            <td colspan="2">&nbsp;</td>
+                                                                        </tr>										
+                                                                        <tr class="textoNegrito">
+                                                                            <td width="30%">Nome:</td>
+                                                                            <td><input type="text" name="nomeDoador" size="30" value="" readonly="readonly" id="idNomeDoador" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <tr class="textoNegrito">
+                                                                            <td>CPF ou CNPJ:</td>
+                                                                            <td><input type="text" name="cpfCnpjDoador" size="20" value="" readonly="readonly" id="idCpfCnpjDoador" class="clsCabecalhoCol00"/></td>
+                                                                        </tr>
+                                                                        <!--                                                                        <tr class="textoNegrito">
+                                                                                                                                                    <td>Esp&eacute;cie do Recurso</td>
+                                                                                                                                                    <td>
+                                                                        <select name="codigoEspecieRecurso" id="idFrmPesqReceitasCandidato_codigoEspecieRecurso" class="clsCabecalhoCol05" style="height:17px;">
+    <option value=""></option>
+    <option value="11">Aplicação Fundo Partidário</option>
+    <option value="6">Boleto de cobrança</option>
+    <option value="7">Cartão de crédito</option>
+    <option value="0">Cheque</option>
+    <option value="4">Depósito em espécie</option>
+    <option value="2">Estimado</option>
+    <option value="3">Outros títulos de crédito</option>
+    <option value="1">Transferência eletrônica</option>
+
+
+</select>
+
+
+                                                                    </td>
+                                                                </tr>-->
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2" align="center"> 
+                                                                                <input type="button" name="btnLocDoador" value="Selecionar Doador" onclick="abrir('pesquisaDoador.jsp', '800', '600', 'popupLocDoadorRecCand')">&nbsp;
+                                                                                <input type="button" name="btnclearDoador" value="Limpar" onclick="limparDadosDoador();">
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>							
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>								 
+                                        </fieldset>
+                                    </td>	
+                                
+                                					
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table border="0" id="subheader" width="100%" cellpadding="0" cellspacing="0"> 
+                                        <tr>
+                                            <td class="clsCabecalho04 textoNegrito" align="center">
+                                                
+                                                    <input type="button" value="Resumo" onclick="submitAction('resumoReceitasByCandidato')" />&nbsp;
+                                                
+                                                <input type="button" value="Exportar como planilha" onclick="submitAction('exportaReceitaCsvCandidato')" />
+                                            </td>
+                                        </tr>
+                                        																
+                                    </table>						
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        
+                            
+                                <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                    <tr>
+                                        <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                            Nº Controle:&nbsp;404000700000PI1722855&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data Entrega:&nbsp;28/11/2014
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            		
+                            							
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Doador Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CPF/CNPJ Originário
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Data 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        N.º Recibo Eleitoral 
+                                    </td>							
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Valor R$ 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Espécie do Recurso 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        N.º Documento
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Nome do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        CNPJ do Candidato 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Número 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Partido 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Candidatura 
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Unidade Eleitoral
+                                    </td>
+                                    <td class="clsCabecalho04 textoNegrito" align="center">
+                                        Fonte do Recurso
+                                    </td>
+                                </tr>
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADRIANA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;793.288.817-49&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000023&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;4000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ADRIANA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;793.288.817-49&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000019&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;6083.42&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ADRIANA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;793.288.817-49&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000001&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;50000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Transfer&ecirc;ncia eletr&ocirc;nica&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;010307&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ADRIANA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;793.288.817-49&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000003&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ALBA ALVES COSTA MARQUES&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;066.308.203-04&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/11/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000030&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ANA TERESA CASTELO BRANCO NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;026.952.093-71&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000007&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            AURISTELA CARVALHO CASTELO BRANCO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;114.289.881-49&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/25/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000038&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CEC&Iacute;LIA NAPOLE&Atilde;O DO R&Ecirc;GO BATISTA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;227.796.123-04&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/5/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000027&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CEC&Iacute;LIA NAPOLE&Atilde;O DO R&Ecirc;GO BATISTA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;227.796.123-04&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000015&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CIRILO HENRIQUES FORMIGA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;041.967.593-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/3/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000025&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CIRILO HENRIQUES FORMIGA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;041.967.593-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/3/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000026&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            CLEIDE MARIA NAPOLE&Atilde;O DO R&Ecirc;GO FORMIGA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;068.975.093-53&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000009&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            CONCEI&Ccedil;&Atilde;O DE MARIA BOAVISTA OLIVEIRA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;138.720.953-15&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/20/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000033&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            DANIELA LEITE LOPES DE ARA&Uacute;JO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;659.791.923-87&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000018&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;4000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELEI&Ccedil;&Otilde;ES 2014 ANTONIO JOS&Eacute; MORAES SOUZA FILHO GOVERNADOR&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;20.603.227/0001-39&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/30/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000049&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;2600.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ELIZABETH DUARTE NAPOL&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;201.142.143-87&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000006&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ELIZABETH DUARTE NAPOL&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;201.142.143-87&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000005&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ENGECOR CONSULTORIA E PROJETOS LTDA - EPP&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;04.804.189/0001-26&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/1/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000041&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;5000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Dep&oacute;sito em esp&eacute;cie&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;1&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ENGECOR CONSULTORIA E PROJETOS LTDA - EPP&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;04.804.189/0001-26&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/30/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000048&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;25000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Dep&oacute;sito em esp&eacute;cie&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;00000&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ERIKA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;001.072.223-88&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000020&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;4000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            ERIKA RIBEIRO DE OLIVEIRA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;001.072.223-88&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000002&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FRANCISCO JOS&Eacute; DA CUNHA ALMEIDA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;028.897.203-14&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000016&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FRANCISCO JOS&Eacute; DO CARMO NETO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;907.269.108-30&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/6/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000029&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            FRANCISCO VILARINHO BARBOSA J&Uacute;NIOR&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;002.941.723-60&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/5/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000028&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            FREDERICO ROMULO SILVA E SOUSA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;666.656.633-53&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/14/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000032&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            GABRIELA CASTELO BRANCO NAPOLE&Atilde;O DO REGO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;004.802.613-18&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/25/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000039&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JOAQUIM VAZ PARENTE&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;068.106.751-91&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/22/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000037&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            JOS&Eacute; ALVES NUNES J&Uacute;NIOR&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;553.425.823-34&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/3/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000024&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            JULIO MEDEIROS BARROS FORTES&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;043.527.693-04&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/5/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000046&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            KLEBER COSTA NAPOLE&Atilde;O DO R&Ecirc;GO FILHO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;003.084.193-32&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000014&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            LINA EUGENIA COSTA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;005.228.893-52&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000004&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARCELLE NAPOLE&Atilde;O DO R&Ecirc;GO FORMIGA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;735.642.733-87&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/4/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000043&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARCOS VENICIUS MEDEIROS COSTA FILHO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;915.071.893-20&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/21/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000036&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA ALVES NUNES&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;763.047.953-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/26/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000040&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA DO SOCORRO COSTA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;185.422.803-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000010&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            MARIA DO SOCORRO COSTA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;185.422.803-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000008&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            MARIA DO SOCORRO PAULA DOS SANTOS&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;065.060.033-91&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/20/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000034&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            NAT&Aacute;LIA CASTELO BRANCO NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;027.954.403-00&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/11/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000031&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            PATR&Iacute;CIA ARANHA CARNEIRO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;273.729.103-82&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000022&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;4000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            POLO EMPREENDIMENTOS LTDA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;08.684.230/0001-29&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;8/20/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000035&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RAYN&Eacute;RIO COSTA MARQUES&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;463.297.653-91&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000021&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROANI AUGUSTO SALES SOARES&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;027.466.713-44&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/5/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000045&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RODRIGO ROCHA DE ALMEIDA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;651.411.132-72&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/5/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000044&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            RONALDO COSTA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;079.495.103-15&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/11/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000047&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;20000.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Dep&oacute;sito em esp&eacute;cie&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;000000&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            RONALDO COSTA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;079.495.103-15&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000017&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;100.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            ROSANGELA FONSECA NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;160.853.453-72&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;9/4/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000042&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            SELENE NAPOLE&Atilde;O DO R&Ecirc;GO MOURA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;227.622.643-91&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000012&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaNaoPreenchida">
+                                        <td align="left">
+                                            SELENE NAPOLE&Atilde;O DO R&Ecirc;GO MOURA&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;227.622.643-91&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000011&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                
+                                    
+                                        
+                                    
+                                    
+                                    <tr bordercolor="#637dbe" class="linhaPreenchida">
+                                        <td align="left">
+                                            TATIANA PARENTE NAPOLE&Atilde;O DO R&Ecirc;GO&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;470.567.383-20&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            &nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;7/24/14&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;404000700000PI000013&nbsp;
+                                        </td>
+                                        <td align="right">
+                                            &nbsp;150.0&nbsp;
+                                            
+                                        </td>
+                                        <td align="left">
+                                            Estimado&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            MARCELO COSTA NAPOLEAO DO REGO&nbsp;
+                                        </td>
+                                        <td align="left">
+                                            20.579.565/0001-82
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;40400&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PSB&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;Deputado Estadual&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            &nbsp;PIAU&Iacute;&nbsp;
+                                        </td>
+                                        <td align="center">
+                                            
+                                        </td>
+                                    </tr>		
+                                	
+                            </table>
+                            <table width="100%" border="0" cellpadding="1" cellspacing="1" class="border_p textoNegrito clsTitulo01">
+                                <tr>
+                                    <td class="clsCabecalho04 textoNegrito" align="center" width="20%">
+                                        Total de Receitas R$  130183.42
+                                    </td>
+                                </tr>
+                            </table>					
+                        
+                        <font size="3"></font>
+                    </td>
+                </tr>		
+            </table>	
+        </form>
+
+
+
+    </body>
+    <SCRIPT type="text/javascript">
+        function limparDadosCandidato(){
+            document.getElementById('idSqCandidato').value = '';
+            document.getElementById('idNrCandidato').value = '';
+            document.getElementById('idNmCandidato').value = '';
+            document.getElementById('idSgUe').value = '';
+            document.getElementById('idSgUfMunicipio').value = '';
+            document.getElementById('idSgPartido').value = '';
+        }
+
+        function limparDadosDoador(){
+            document.getElementById('idNomeDoador').value = '';
+            document.getElementById('idCpfCnpjDoador').value = '';
+            document.getElementById('idEspecieRecurso').value = '';
+            document.getElementById('idCodigoEspecieRecurso').value = '';
+        }
+        
+    </SCRIPT>    
+</html>
